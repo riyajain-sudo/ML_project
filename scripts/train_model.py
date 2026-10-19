@@ -1,3 +1,5 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
 #Random forest algo is used
 
 import pandas as pd
@@ -16,7 +18,7 @@ import matplotlib.pyplot as plt
          
 
 #Load dataset
-df = pd.read_csv("../data/gyrB_ml.csv")
+df = pd.read_csv(ROOT / "data/gyrB_ml.csv")
 
 # print(df.head())
 # print(df.shape)

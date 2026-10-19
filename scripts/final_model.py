@@ -1,3 +1,5 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
 #do not give standard value as input to the model, only give pIC50 values as input to the model to avoid DATA LEAKAGE
 
 import pandas as pd
@@ -7,7 +9,7 @@ from sklearn.ensemble import RandomForestRegressor
 
 
 # Load pIC50 dataset
-df = pd.read_csv("../data/gyrB_pic50.csv")
+df = pd.read_csv(ROOT / "data/gyrB_pic50.csv")
 
 
 # Features
@@ -41,7 +43,7 @@ model.fit(X, y)
 # Save the final model
 joblib.dump(
     model,
-    "../models/gyrB_rf_pic50_final.pkl"
+    ROOT / "models/gyrB_rf_pic50_final.pkl"
 )
 
 

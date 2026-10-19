@@ -1,3 +1,5 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
 #a separte script to inspect the external data before processing it -> E. coli DNA gyrase compounds
 
 
@@ -5,7 +7,7 @@ import pandas as pd
 from tabulate import tabulate
 
 df = pd.read_csv(
-    "../data/gyrB_external_raw.csv",
+    ROOT / "data/gyrB_external_raw.csv",
     sep=";",
     quotechar='"',
     engine="c",          # faster + usually more forgiving here than python engine

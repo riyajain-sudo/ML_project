@@ -1,3 +1,5 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
 from chembl_webresource_client.new_client import new_client
 import pandas as pd
 
@@ -27,6 +29,6 @@ print("\nMissing Values:")
 print(df.isnull().sum())
 
 # Save the raw dataset
-df.to_csv("../data/gyrB_raw.csv", index=False)
+df.to_csv(ROOT / "data/gyrB_raw.csv", index=False)
 
 print("Raw dataset saved successfully!")

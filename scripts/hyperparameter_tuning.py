@@ -1,3 +1,5 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
 #didnt work; 
 
 import pandas as pd
@@ -13,7 +15,7 @@ from sklearn.metrics import (
 )
 
 #Load dataset
-df = pd.read_csv("../data/gyrB_ml.csv")
+df = pd.read_csv(ROOT / "data/gyrB_ml.csv")
 
 #divide the dataset into features and target variable
 X = df.drop(columns=["standard_value"])

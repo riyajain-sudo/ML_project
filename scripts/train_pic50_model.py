@@ -1,3 +1,5 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
 import pandas as pd
 from sklearn.model_selection import train_test_split   #evaluates every parameter combination using cross-validation.
 from sklearn.ensemble import (
@@ -16,7 +18,7 @@ import joblib
          
 
 #Load dataset
-df = pd.read_csv("../data/gyrB_pic50.csv")
+df = pd.read_csv(ROOT / "data/gyrB_pic50.csv")
 
 X = df.drop(columns=["standard_value", "pIC50"])
 y = df["pIC50"]
@@ -55,7 +57,7 @@ model = RandomForestRegressor(
 model.fit(X_train, y_train)
 
 #saving the model
-joblib.dump(model, "../models/gyrB_rf_pic50.pkl")
+joblib.dump(model, ROOT / "models/gyrB_rf_pic50.pkl")
 
 print("Model saved successfully!")
 

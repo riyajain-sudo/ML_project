@@ -1,8 +1,10 @@
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Descriptors
 
-df = pd.read_csv("../data/gyrB_clean.csv")
+df = pd.read_csv(ROOT / "data/gyrB_clean.csv")
 
 
 def calculate_descriptors(smiles):
@@ -42,7 +44,7 @@ final_df = pd.concat(
 
 # print(final_df.columns)
 
-final_df.to_csv("../data/gyrB_descriptors.csv", index=False)
+final_df.to_csv(ROOT / "data/gyrB_descriptors.csv", index=False)
 
 print("Descriptor dataset saved successfully!")
 print("Shape:", final_df.shape)
